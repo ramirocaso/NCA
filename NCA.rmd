@@ -16,7 +16,6 @@ This is a very simple script just to reproduce the examples in Professor's Dul b
 First step is to load the package. 
 
 ```{r}
-install.packages("NCA")
 library(NCA)
 ```
 
@@ -30,10 +29,11 @@ data <- data[-c(14,22,26),]
 
 Third, we create the models and scatterplot 
 
-```{r}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 model <- nca_analysis(data,c("Individualism", "Risk taking"),"Innovation performance")
 nca_output(model, plots=T)
-
+```
+```{r echo=TRUE}
 model2 <- nca_analysis(data,c("Risk taking", "Individualism"),"Innovation performance")
 nca_output(model2, plots=T)
 ```
