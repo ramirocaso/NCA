@@ -1,0 +1,40 @@
+---
+title: "NCA Examples"
+author: "Ramiro Casó"
+date: "9/15/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Necessary Condition Analysis. 
+
+This is a very simple script just to reproduce the examples in Professor's Dul book *Conducting Necessary Analysis* (2020). 
+
+First step is to load the package. 
+
+```{r}
+install.packages("NCA")
+library(NCA)
+```
+
+Second, load the data and delete the non western countries
+
+```{r}
+data("nca.example")
+data <-nca.example
+data <- data[-c(14,22,26),]
+```
+
+Third, we create the models and scatterplot 
+
+```{r}
+model <- nca_analysis(data,c("Individualism", "Risk taking"),"Innovation performance")
+nca_output(model, plots=T)
+
+model2 <- nca_analysis(data,c("Risk taking", "Individualism"),"Innovation performance")
+nca_output(model2, plots=T)
+```
+
